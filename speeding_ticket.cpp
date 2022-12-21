@@ -12,52 +12,50 @@ using namespace std;
 
 signed main()
 {
-    FAST int t;
-    // cin>>t;
     // freopen("speeding.in", "r", stdin);
     // freopen("speeding.out", "w", stdout);
+    FAST int t;
+    // cin >> t;
     t = 1;
     while (t--)
     {
         int n, m;
         cin >> n >> m;
-        int lim[100] = {};
-        int bes[100] = {};
-
+        vector<int> a, b;
         for (int i = 0; i < n; i++)
         {
-            int a;
-            cin >> a;
-            int b;
-            cin >> b;
-            int c = 0;
-            for (int j = c; j < a + c; j++)
+            int x;
+            cin >> x;
+            int y;
+            cin >> y;
+            for (int j = 0; j < x; j++)
             {
-                lim[j] = b;
-                // cout << lim[j] << " ";
+
+                a.push_back(y);
             }
-            c += a;
         }
         for (int i = 0; i < m; i++)
         {
-            int a = 0;
-            cin >> a;
-            int b = 0;
-            cin >> b;
-            int c = 0;
-            for (int j = c; j < a + c; j++)
+            int x;
+            cin >> x;
+            int y;
+            cin >> y;
+            for (int j = 0; j < x; j++)
             {
-                if (b - lim[j] > 0)
-                {
-                    bes[j] = b - lim[j];
-                }
-
-                cout << bes[j] << " ";
+                b.push_back(y);
             }
-            c += a;
         }
-        // sort(bes, bes + 100);
-        // cout << *max_element(bes, bes + 100) ? *max_element(bes, bes + 100) : 0;
+        for (int i = 0; i < 100; i++)
+        {
+            b[i] = b[i] - a[i];
+        }
+        sort(b.begin(), b.end());
+        // for (int i = 0; i < 100; i++)
+        // {
+        //     cout << b[i] << " ";
+        // }
+
+        cout << ((b[99] > 0) ? b[99] : 0);
     }
     return 0;
 }
